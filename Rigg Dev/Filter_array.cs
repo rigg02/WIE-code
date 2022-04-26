@@ -1,22 +1,31 @@
 //Using arrays and foreach loop to take an array from user and filter the array for value above 50
 using System;
+public class Array
 {
-    int n;
-    Console.WriteLine("Please enter the number of elements for the array\n");
-    n = Console.Read();
-    int arr[n];
-    for (int i = 0; i <= n; i++)
+    public static void Main()
     {
-        arr[i] = Console.Read();
-    }
-    int new[n], c = 0;
-    for(int i=0;i<=n;i++)
-    {
-        if (i > 50)
+        Console.WriteLine("Please enter the number of elements for the array");
+        int n = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Entered value is "+ n);
+        int[] arr=new int[n];
+        for (int i = 0; i < n; i++)
         {
-            new[c]= i;
+            Console.WriteLine("Enter the value for element "+i);
+            arr[i] = Convert.ToInt32(Console.ReadLine());
         }
-        c++;
+        int[] nw=new int[n];
+        int c = 0;
+        for(int i=0;i < n;i++)
+        {
+            if (arr[i] > 50)
+            {
+                nw[c]= arr[i];
+                c++;
+            }
+        }
+        Console.WriteLine("The elements greater than 50 are");
+        for(int i=0;i<c;i++)
+        {
+            Console.WriteLine(nw[i]);
+        }
     }
-    Console.WriteLine("The elements greater than 50 are \n" + new{});
-}
