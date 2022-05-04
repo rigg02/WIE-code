@@ -1,0 +1,12 @@
+using System;
+using System.Linq;
+
+public class Program
+{
+	public static string WeekAfter(string date)
+	{
+		int[] dateArr = Array.ConvertAll(date.Split('/'), int.Parse);
+		DateTime dt2 = new DateTime(dateArr[2], dateArr[1], dateArr[0]).AddDays(7);
+		return dt2.ToString("dd/MM/yyyy");	
+	}
+}
