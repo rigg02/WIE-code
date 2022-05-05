@@ -1,0 +1,13 @@
+using System;
+(double, double) Find_Vertex(double a, double b, double c)
+{
+    double x = -b / 2 * a;
+    double y = a * x * x + b * x + c;
+    x = Math.Round(x * 100) / 100;
+    y = Math.Round(y * 100) / 100;
+    return (x, y);
+}
+Console.WriteLine("Hey, I heard you were facing some problem with your math probles but worry not I'm here to help you out with that.\nSimply enter the value of a, b and c in the equation form below.\ny=ax^2+bx+c");
+double a = Convert.ToDouble(Console.ReadLine()), b = Convert.ToDouble(Console.ReadLine()), c = Convert.ToDouble(Console.ReadLine());
+(double x, double y) ver = Find_Vertex(a, b, c);
+Console.WriteLine("The vertex of the quadric equation is (" + ver.x + "," + ver.y + ")");
