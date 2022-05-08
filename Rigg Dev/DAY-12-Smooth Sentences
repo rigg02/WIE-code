@@ -1,0 +1,38 @@
+using System;
+​
+public class Program 
+{
+  public static bool IsSmooth(string sentence) 
+  {
+    int idx = 0;
+    char lastLetter;
+    
+    while(sentence[idx] == ' ')
+      idx++;
+    
+    if (idx == sentence.Length)
+      return true;
+    
+    while (sentence[idx] != ' ')
+      idx++;
+    
+    if (idx == sentence.Length)
+      return true;
+    
+    lastLetter = Char.ToLower(sentence[idx - 1]);
+    
+    for ( ; idx < sentence.Length - 1; idx++)
+    {
+      if (sentence[idx] != ' ' && sentence[idx + 1] == ' ')
+        lastLetter = Char.ToLower(sentence[idx]);
+      else if (sentence[idx] == ' ')
+        continue;
+      else if (sentence[idx - 1] == ' ' && 
+               sentence[idx] != ' ' &&
+               lastLetter != Char.ToLower(sentence[idx]))
+        return false;
+    }
+    
+    return true;
+  }
+}
